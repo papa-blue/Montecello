@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Manage Residence</title>
+		<script src= "boot/js/bootstrap.min.js"></script>
+		<script src= "boot/js/bootstrap.js"></script>
+		<script src= "boot/css/bootstrap.min.css"></script>
+		<script src="Angular.js"</script>
+		
+	</head>
+	
+	<body>
+		<?php
+		
+		require_once('iconnect.php');
+		
+		$query = "SELECT * from residence";
+		
+		$results = @mysqli_query($dbc, $query);
+		
+			echo '<table class="table">
+					
+						<tr>
+							<td>Id Number</td>
+							<td>Name</td>
+							<td>Surname</td>
+							<td>mobile</td>
+							<td>owner_or_tenant</td>
+							<td>E-mail</td>
+						</tr>';
+						
+			while ($row = mysqli_fetch_array($results)){
+				echo '<tr><td>'.
+				$row['firstname']. '</td><td>'.
+				$row['surname']. '</td><td>'.
+				$row['mobile']. '</td><td>'.
+				$row['owner_or_tenant']. '</td><td>'.
+				$row['email']. '</td><td>'.
+				$row['id_no']. '</td><td>';
+				
+				echo '</tr>';
+			}
+			
+			echo '</table>';
+			
+			
+			
+				
+			
+				
+		?>
+	</body>
+</html>
